@@ -1,22 +1,41 @@
 # Configuration Files
 
-## Important: database.php
+## Important: Sensitive Configuration Files
 
-ไฟล์ `database.php` มีข้อมูล sensitive (username, password) จึง**ไม่ถูก commit ลง Git**
+ไฟล์ต่อไปนี้มีข้อมูล sensitive จึง**ไม่ถูก commit ลง Git**:
+- `database.php` - มี username, password ฐานข้อมูล
+- `config.php` - มี site_name, boss_name, base_url
 
 ### การตั้งค่าครั้งแรก
 
-1. Copy ไฟล์ตัวอย่าง:
+#### 1. Database Configuration
+
+Copy ไฟล์ตัวอย่าง:
 ```cmd
 copy database.php.example database.php
 ```
 
-2. แก้ไขค่าใน `database.php`:
+แก้ไขค่าใน `database.php`:
 ```php
 'hostname' => 'mysql',              // หรือ 'localhost' ถ้าไม่ใช้ Docker
 'username' => 'your_username',      // เปลี่ยนเป็น username จริง
 'password' => 'your_password',      // เปลี่ยนเป็น password จริง
 'database' => 'your_database_name', // เปลี่ยนเป็นชื่อ database จริง
+```
+
+#### 2. Site Configuration
+
+Copy ไฟล์ตัวอย่าง:
+```cmd
+copy config.php.example config.php
+```
+
+แก้ไขค่าใน `config.php`:
+```php
+$config['site_name'] = 'ชื่อหน่วยงานของคุณ';
+$config['boss_name'] = 'ชื่อผู้บริหาร';
+$config['boss_position'] = 'ตำแหน่ง';
+$config['base_url'] = 'http://your-domain.com/';
 ```
 
 ### สำหรับ Docker Environment

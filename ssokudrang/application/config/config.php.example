@@ -24,12 +24,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 //$config['base_url'] = 'http://'.$_SERVER['SERVER_NAME'].':8888/sso';
-$config['site_name'] = 'สำนักงานสาธารณสุขอำเภอกุดรัง';
+$config['site_name'] = 'YOUR_SITE_NAME';
 $config['boss_id'] = 1;
-$config['boss_name'] = 'นายปราโมท  หามาลา';
-$config['boss_position'] = 'สาธารณสุขอำเภอกุดรัง';
-// Updated for Docker environment
+$config['boss_name'] = 'YOUR_BOSS_NAME';
+$config['boss_position'] = 'YOUR_BOSS_POSITION';
+// For Docker environment
 $config['base_url'] = 'http://localhost:8085/';
+// For Production
 //$config['base_url'] = 'https://'.$_SERVER['SERVER_NAME'].'/ssokudrang';
 
 /*

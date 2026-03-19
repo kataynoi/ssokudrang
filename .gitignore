@@ -33,8 +33,9 @@ ssokudrang/application/logs/*
 !ssokudrang/application/logs/index.html
 !ssokudrang/application/logs/.htaccess
 
-# Sensitive configuration files (contains passwords)
+# Sensitive configuration files (contains passwords, site settings)
 ssokudrang/application/config/database.php
+ssokudrang/application/config/config.php
 
 # Uploads and Images
 ssokudrang/assets/uploads/*
