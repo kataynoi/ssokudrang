@@ -44,17 +44,6 @@ docker-compose ps
 
 ## 🔐 ข้อมูลการเข้าสู่ระบบ
 
-### Database
-- **Host:** mysql (ใน Docker) หรือ localhost:3310 (จากภายนอก)
-- **Database:** ssokudrang
-- **Username:** dechachit
-- **Password:** dd0648282939DD
-- **Root Password:** dd0648282939DD
-
-### phpMyAdmin
-- **Server:** mysql
-- **Username:** dechachit หรือ root
-- **Password:** dd0648282939DD
 
 ## 📁 โครงสร้างโปรเจกต์
 
@@ -164,7 +153,7 @@ taskkill /PID <PID> /F
 ### ปัญหา: Database ไม่ import อัตโนมัติ
 ```cmd
 :: Import manual
-docker exec -i ssokudrang_mysql mysql -uroot -pdd0648282939DD ssokudrang < ssokudrang.sql
+
 ```
 
 ### ปัญหา: Permission denied ใน cache/logs
@@ -187,7 +176,7 @@ docker-compose restart nginx
 ### ปัญหา: Database connection failed
 ```cmd
 :: ตรวจสอบว่า MySQL พร้อมใช้งาน
-docker exec -it ssokudrang_mysql mysql -uroot -pdd0648282939DD -e "SHOW DATABASES;"
+
 
 :: ตรวจสอบ config
 docker exec -it ssokudrang_php cat /var/www/html/application/config/database.php
