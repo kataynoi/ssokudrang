@@ -6,13 +6,13 @@ services:
     image: nginx:alpine
     container_name: ssokudrang_nginx
     ports:
-      - "8085:80"
+      - "${NGINX_PORT:-8085}:80"
     volumes:
       - ./ssokudrang:/var/www/html
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - php
-      - mysql
+    restart: unless-stopped
     networks:
       - ssokudrang_network
 
@@ -27,6 +27,7 @@ services:
       - ./.env:/var/www/.env:ro
     depends_on:
       - mysql
+    restart: unless-stopped
     networks:
       - ssokudrang_network
 
@@ -35,16 +36,17 @@ services:
     image: mysql:5.7
     container_name: ssokudrang_mysql
     ports:
-      - "3310:3306"
+      - "${MYSQL_PORT:-3310}:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: dd0648282939DD
-      MYSQL_DATABASE: ssokudrang
-      MYSQL_USER: dechachit
-      MYSQL_PASSWORD: dd0648282939DD
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
     volumes:
       - mysql_data:/var/lib/mysql
-      - ./ssokudrang.sql:/docker-entrypoint-initdb.d/ssokudrang.sql
+      - ./ssokudrang.sql:/docker-entrypoint-initdb.d/ssokudrang.sql:ro
     command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    restart: unless-stopped
     networks:
       - ssokudrang_network
 
@@ -53,13 +55,14 @@ services:
     image: phpmyadmin/phpmyadmin
     container_name: ssokudrang_phpmyadmin
     ports:
-      - "8086:80"
+      - "${PHPMYADMIN_PORT:-8086}:80"
     environment:
       PMA_HOST: mysql
       PMA_PORT: 3306
-      MYSQL_ROOT_PASSWORD: dd0648282939DD
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
     depends_on:
       - mysql
+    restart: unless-stopped
     networks:
       - ssokudrang_network
 
