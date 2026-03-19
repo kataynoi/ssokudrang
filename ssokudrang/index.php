@@ -1,5 +1,15 @@
 <?php
 ob_start();
+
+/*
+ *---------------------------------------------------------------
+ * LOAD ENVIRONMENT VARIABLES
+ *---------------------------------------------------------------
+ *
+ * Load .env file to set environment variables
+ */
+require_once(__DIR__ . '/application/helpers/dotenv_helper.php');
+
 /**
  * CodeIgniter
  *
@@ -54,7 +64,7 @@ ob_start();
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
+	define('ENVIRONMENT', env('APP_ENV', 'development'));
 
 /*
  *---------------------------------------------------------------
