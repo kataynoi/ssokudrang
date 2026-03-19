@@ -115,12 +115,12 @@ docker-compose restart mysql
 
 ### Import Database ใหม่
 ```cmd
-docker exec -i ssokudrang_mysql mysql -uroot -pdd0648282939DD ssokudrang < ssokudrang.sql
+docker exec -i ssokudrang_mysql mysql -uroot -p ssokudrang < ssokudrang.sql
 ```
 
 ### Backup Database
 ```cmd
-docker exec ssokudrang_mysql mysqldump -uroot -pdd0648282939DD ssokudrang > backup_ssokudrang_%date:~-4,4%%date:~-7,2%%date:~-10,2%.sql
+docker exec ssokudrang_mysql mysqldump -uroot -p ssokudrang > backup_ssokudrang_%date:~-4,4%%date:~-7,2%%date:~-10,2%.sql
 ```
 
 ## ⚙️ การปรับแต่งที่ทำไว้
