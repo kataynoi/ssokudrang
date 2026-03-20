@@ -50,22 +50,6 @@ services:
     networks:
       - ssokudrang_network
 
-  # phpMyAdmin Service (Optional - for database management)
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    container_name: ssokudrang_phpmyadmin
-    ports:
-      - "${PHPMYADMIN_PORT:-8086}:80"
-    environment:
-      PMA_HOST: mysql
-      PMA_PORT: 3306
-      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
-    depends_on:
-      - mysql
-    restart: unless-stopped
-    networks:
-      - ssokudrang_network
-
 networks:
   ssokudrang_network:
     driver: bridge
