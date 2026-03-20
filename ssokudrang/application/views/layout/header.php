@@ -47,7 +47,7 @@
                         <label for="cat_id">หมวดหมู่</label>
                         <select class="form-control" id="n_year" placeholder="หมวดหมู่" value="">
                             <?php
-                            for($i=2563; $i<=2568; $i++)
+                            for($i=2563; $i<=2572; $i++)
                             {
                                 $select='';
                                 $i==$this->session->userdata('n_year') ? $select='selected':$select='';
