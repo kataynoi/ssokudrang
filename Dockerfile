@@ -18,7 +18,10 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
-RUN docker-php-ext-install pdo_mysql mysqli mbstring exif pcntl bcmath gd zip
+RUN docker-php-ext-install pdo_mysql mysqli mbstring exif pcntl bcmath gd zip opcache
+
+# Copy custom PHP configuration
+COPY php.ini /usr/local/etc/php/conf.d/custom.ini
 
 # Set working directory
 WORKDIR /var/www/html

@@ -10,20 +10,20 @@
             </ol>
 
             <!-- Wrapper for slides -->
-            <div class="carousel-inner">
+            <div class="carousel-inner" style="height: 300px; overflow: hidden;">
                 <div class="item active">
                     <div class="desc">..</div>
-                    <img src="<?php echo base_url()?>assets/images/banner/1.jpg" alt="" style="width:100%;">
+                    <img src="<?php echo base_url()?>assets/images/banner/1.jpg" alt="" style="width:100%; height:300px; object-fit:cover;">
                 </div>
 
                 <div class="item">
                     <div class="desc">..</div>
-                    <img src="<?php echo base_url()?>assets/images/banner/2.jpg" alt="" style="width:100%;">
+                    <img src="<?php echo base_url()?>assets/images/banner/2.jpg" alt="" style="width:100%; height:300px; object-fit:cover;">
                 </div>
 
                 <div class="item">
                     <div class="desc">..</div>
-                    <img src="<?php echo base_url()?>assets/images/banner/3.jpg" alt="" style="width:100%;">
+                    <img src="<?php echo base_url()?>assets/images/banner/3.jpg" alt="" style="width:100%; height:300px; object-fit:cover;">
                 </div>
             </div>
 
@@ -42,15 +42,6 @@
 </div>
 <br>
 <div class='row'>
-    <div class="col col-lg-6">
-        <div class="panel panel-info">
-            <div class="panel-heading"> รายงานสถานการณ์ โควิด-19 ในประเทศ</div>
-            <div class="panel-body">
-                <iframe width="100%" height="400px" src="https://covid19.th-stat.com/th/share/dashboard" frameBorder="0"></iframe>
-            </div>
-        </div>
-
-    </div>
     <div class='col col-lg-12'>
         <div class="panel  panel-default">
             <div class="panel-heading w3-theme-l1">
